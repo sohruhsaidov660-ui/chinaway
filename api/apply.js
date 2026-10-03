@@ -80,7 +80,8 @@ export default async function handler(req, res) {
       return res.status(500).json({ error: 'Telegram не настроен на сервере.' });
     }
 
-    const results = await Promise.all(ownerIds.map(id => sendTelegram(id, message)));
+    const results = await Promise.all(ownerIds.map(id => sendTelegram(id, message))); 
+    console.log("Telegram results:", results);
     if (!results.some(Boolean)) {
       return res.status(502).json({ error: 'Telegram не принял сообщение.' });
     }
