@@ -6,6 +6,7 @@ function makeApplicationId() {
   return `CW-${Math.floor(1000 + Math.random() * 9000)}`;
 }
 
+
 async function sendTelegram(chatId, text) {
   const token = process.env.TELEGRAM_BOT_TOKEN;
   if (!token || !chatId) return false;
@@ -15,6 +16,16 @@ async function sendTelegram(chatId, text) {
     headers: { 'content-type': 'application/json' },
     body: JSON.stringify({ chat_id: chatId, text })
   });
+
+  const data = await response.json().catch(() => ({}));
+
+  if (!response.ok) {
+    console.error(
+      "Telegram API error:",
+      response.status,
+      data.description || "Unknown error"
+    );
+  }
 
   return response.ok;
 }
