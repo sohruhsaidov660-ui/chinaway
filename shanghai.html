@@ -2,11 +2,13 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#080a0f">
+
 <title>Университеты Шанхая | ChinaWay</title>
 
 <style>
+
 :root{
   --bg:#080a0f;
   --panel:#151821;
@@ -16,36 +18,45 @@
   --line:rgba(255,255,255,.09);
 }
 
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
 
 body{
   margin:0;
   background:var(--bg);
   color:var(--text);
-  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
 }
 
-a{text-decoration:none;color:inherit}
+a{
+  color:inherit;
+  text-decoration:none;
+}
 
 .container{
-  width:min(1180px,calc(100% - 32px));
+  width:min(1180px,calc(100% - 28px));
   margin:auto;
 }
+
 
 /* HEADER */
 
 header{
   position:sticky;
   top:0;
-  z-index:30;
-  background:rgba(8,10,15,.92);
+  z-index:50;
+  background:rgba(8,10,15,.94);
   backdrop-filter:blur(18px);
   border-bottom:1px solid var(--line);
 }
 
 .nav{
-  height:76px;
+  height:74px;
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -53,72 +64,77 @@ header{
 }
 
 .logo img{
-  height:46px;
+  height:44px;
   width:auto;
   display:block;
 }
 
 .nav-links{
   display:flex;
-  gap:24px;
-  color:#d7d9df;
+  gap:25px;
+  color:#d8dbe2;
   font-size:14px;
 }
 
 .apply{
   background:var(--red);
-  padding:12px 18px;
-  border-radius:14px;
+  padding:12px 17px;
+  border-radius:13px;
   font-weight:800;
 }
+
 
 /* HERO */
 
 .hero{
-  padding:32px 0;
+  padding:25px 0 45px;
 }
 
-.hero-card{
-  min-height:520px;
+.hero-box{
+  min-height:460px;
   border-radius:30px;
-  overflow:hidden;
-  position:relative;
+  padding:42px;
   display:flex;
   align-items:flex-end;
+  position:relative;
+  overflow:hidden;
+  border:1px solid var(--line);
 
   background:
-  linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.85)),
-  url('IMG_4341.jpeg') center/cover no-repeat;
+    radial-gradient(circle at 80% 20%,rgba(239,52,52,.35),transparent 35%),
+    linear-gradient(135deg,#181c27,#090b11 65%);
+}
 
-  border:1px solid var(--line);
+.hero-box:after{
+  content:"上海";
+  position:absolute;
+  right:-20px;
+  top:20px;
+  font-size:190px;
+  font-weight:900;
+  color:rgba(255,255,255,.035);
 }
 
 .hero-content{
-  padding:45px;
-  max-width:760px;
+  position:relative;
+  z-index:2;
+  max-width:720px;
 }
 
-.eyebrow{
-  display:inline-flex;
-  align-items:center;
-  gap:9px;
-  padding:9px 14px;
-  border-radius:999px;
-  background:rgba(239,52,52,.14);
-  border:1px solid rgba(239,52,52,.4);
-  font-size:13px;
+.badge{
+  display:inline-block;
+  color:#fff;
+  border:1px solid rgba(239,52,52,.45);
+  background:rgba(239,52,52,.12);
+  padding:8px 13px;
+  border-radius:100px;
+  font-size:12px;
   font-weight:800;
-}
-
-.dot{
-  width:8px;
-  height:8px;
-  border-radius:50%;
-  background:var(--red);
+  letter-spacing:.08em;
 }
 
 h1{
-  font-size:clamp(50px,8vw,92px);
+  font-size:clamp(52px,9vw,92px);
   line-height:.95;
   margin:20px 0;
   letter-spacing:-.05em;
@@ -129,27 +145,26 @@ h1 span{
 }
 
 .hero p{
-  color:#d5d8df;
+  color:#c9cdd6;
   font-size:18px;
   line-height:1.6;
-  max-width:650px;
+  max-width:620px;
 }
 
-.hero-actions{
+.buttons{
   display:flex;
   flex-wrap:wrap;
-  gap:12px;
-  margin-top:25px;
+  gap:10px;
+  margin-top:24px;
 }
 
 .btn{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  padding:14px 19px;
+  padding:14px 18px;
   border-radius:14px;
   font-weight:800;
-  border:1px solid var(--line);
 }
 
 .btn-red{
@@ -157,113 +172,94 @@ h1 span{
 }
 
 .btn-dark{
-  background:rgba(12,14,20,.75);
+  background:#151821;
+  border:1px solid var(--line);
 }
+
 
 /* INTRO */
 
 .intro{
-  padding:40px 0 15px;
+  padding:25px 0 45px;
 }
 
 .kicker{
   color:var(--red);
-  font-size:13px;
+  font-size:12px;
   font-weight:900;
-  text-transform:uppercase;
   letter-spacing:.15em;
 }
 
 h2{
-  font-size:clamp(34px,5vw,54px);
-  margin:8px 0 15px;
-  letter-spacing:-.03em;
+  font-size:clamp(34px,6vw,54px);
+  margin:10px 0 14px;
+  letter-spacing:-.04em;
 }
 
 .description{
   color:var(--muted);
-  max-width:700px;
   line-height:1.7;
+  max-width:720px;
 }
 
-/* SHANGHAI PHOTOS */
 
-.city-gallery{
-  display:grid;
-  grid-template-columns:1.35fr .65fr;
-  gap:14px;
-  margin:30px 0 70px;
-}
-
-.city-photo{
-  border-radius:24px;
-  min-height:250px;
-  border:1px solid var(--line);
-  background-size:cover;
-  background-position:center;
-}
-
-.city-photo.big{
-  min-height:430px;
-  background-image:url('IMG_4344.jpeg');
-}
-
-.city-stack{
-  display:grid;
-  gap:14px;
-}
-
-.city-stack .city-photo:first-child{
-  background-image:url('IMG_4345.jpeg');
-}
-
-.city-stack .city-photo:last-child{
-  background-image:url('IMG_4346.jpeg');
-}
-
-/* UNIVERSITIES */
+/* UNIVERSITY GRID */
 
 .universities{
   padding:20px 0 80px;
-}
-
-.section-head{
-  margin-bottom:28px;
 }
 
 .grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:18px;
+  margin-top:30px;
 }
 
 .card{
-  background:linear-gradient(180deg,#171b24,#12151d);
+  background:linear-gradient(180deg,#171b24,#11141b);
   border:1px solid var(--line);
   border-radius:24px;
   overflow:hidden;
-  transition:.25s;
-}
-
-.card:hover{
-  transform:translateY(-5px);
-  border-color:rgba(239,52,52,.5);
 }
 
 .photo{
-  height:230px;
+  height:235px;
+  position:relative;
   background-size:cover;
   background-position:center;
-  position:relative;
+}
+
+
+/* FUDAN — ПРАВИЛЬНАЯ ФОТОГРАФИЯ */
+
+.fudan{
+  background-image:url('IMG_4341.jpeg');
+}
+
+
+/* ФОТОГРАФИИ ОСТАЛЬНЫХ ДОБАВИМ ПОТОМ */
+
+.placeholder{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:
+    radial-gradient(circle at 70% 20%,rgba(239,52,52,.25),transparent 35%),
+    #171a22;
+  color:#777d89;
+  font-size:13px;
+  font-weight:700;
 }
 
 .number{
   position:absolute;
   top:15px;
   left:15px;
-  background:rgba(8,10,15,.8);
-  border-radius:12px;
+  background:rgba(5,6,10,.8);
+  backdrop-filter:blur(10px);
   padding:7px 10px;
+  border-radius:10px;
   font-size:12px;
   font-weight:900;
 }
@@ -274,16 +270,16 @@ h2{
 
 .location{
   color:var(--red);
-  font-size:12px;
+  font-size:11px;
   font-weight:900;
+  letter-spacing:.12em;
   text-transform:uppercase;
-  letter-spacing:.1em;
 }
 
 h3{
-  font-size:23px;
-  line-height:1.2;
   margin:10px 0 5px;
+  font-size:22px;
+  line-height:1.25;
 }
 
 .cn{
@@ -293,8 +289,8 @@ h3{
 
 .more{
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
   padding-top:16px;
   border-top:1px solid var(--line);
   font-weight:800;
@@ -305,29 +301,24 @@ h3{
   font-size:22px;
 }
 
-/* UNIVERSITY PHOTOS */
-
-.fudan{background-image:url('IMG_4347.jpeg')}
-.sjtu{background-image:url('IMG_4348.jpeg')}
-.tongji{background-image:url('IMG_4349.jpeg')}
-.shu{background-image:url('IMG_4350.jpeg')}
-.ecnu{background-image:url('IMG_4351.jpeg')}
-.donghua{background-image:url('IMG_4344.jpeg')}
 
 /* CTA */
 
 .cta{
   margin-bottom:70px;
-  padding:38px;
-  border-radius:28px;
-  background:#151821;
+  padding:35px;
+  border-radius:27px;
   border:1px solid var(--line);
+  background:
+    radial-gradient(circle at 90% 10%,rgba(239,52,52,.18),transparent 35%),
+    #151821;
 }
 
 .cta p{
   color:var(--muted);
   line-height:1.7;
 }
+
 
 /* FOOTER */
 
@@ -337,21 +328,21 @@ footer{
   color:var(--muted);
 }
 
-.footer-row{
+.footer{
   display:flex;
   justify-content:space-between;
   gap:20px;
 }
 
-.footer-logo{
+.footer-name{
   color:#fff;
-  font-size:20px;
   font-weight:900;
 }
 
-.footer-logo span{
+.footer-name span{
   color:var(--red);
 }
+
 
 /* MOBILE */
 
@@ -361,44 +352,34 @@ footer{
     display:none;
   }
 
-  .logo img{
-    height:38px;
-  }
-
   .grid{
     grid-template-columns:1fr 1fr;
   }
 
-  .city-gallery{
-    grid-template-columns:1fr;
-  }
-
-  .city-stack{
-    grid-template-columns:1fr 1fr;
-  }
 }
 
-@media(max-width:590px){
+@media(max-width:600px){
 
   .container{
     width:calc(100% - 22px);
   }
 
-  .hero{
-    padding-top:18px;
+  .logo img{
+    height:38px;
   }
 
-  .hero-card{
-    min-height:470px;
-    border-radius:24px;
+  .hero-box{
+    min-height:430px;
+    padding:24px;
+    border-radius:23px;
   }
 
-  .hero-content{
-    padding:22px;
+  .hero-box:after{
+    font-size:120px;
   }
 
   h1{
-    font-size:52px;
+    font-size:54px;
   }
 
   .hero p{
@@ -409,28 +390,25 @@ footer{
     grid-template-columns:1fr;
   }
 
-  .city-stack{
-    grid-template-columns:1fr;
-  }
-
-  .city-photo.big{
-    min-height:300px;
-  }
-
   .photo{
-    height:235px;
+    height:240px;
   }
 
-  .footer-row{
+  .footer{
     flex-direction:column;
   }
+
 }
+
 </style>
 </head>
 
+
 <body>
 
+
 <header>
+
 <div class="container nav">
 
 <a class="logo" href="index.html">
@@ -439,8 +417,8 @@ footer{
 
 <nav class="nav-links">
 <a href="index.html">Главная</a>
-<a href="universities.html">Все города</a>
-<a href="#universities">Университеты Шанхая</a>
+<a href="universities.html">Все университеты</a>
+<a href="#universities">Шанхай</a>
 </nav>
 
 <a class="apply" href="index.html#application">
@@ -448,19 +426,22 @@ footer{
 </a>
 
 </div>
+
 </header>
+
 
 <main>
 
+
 <section class="hero">
+
 <div class="container">
 
-<div class="hero-card">
+<div class="hero-box">
 
 <div class="hero-content">
 
-<div class="eyebrow">
-<span class="dot"></span>
+<div class="badge">
 CHINAWAY · SHANGHAI
 </div>
 
@@ -469,68 +450,38 @@ CHINAWAY · SHANGHAI
 </h1>
 
 <p>
-Один из крупнейших образовательных центров Китая.
-Изучай университеты Шанхая и выбирай вариант,
-который подходит именно тебе.
+Один из главных образовательных центров Китая.
+Изучай университеты Шанхая и выбирай подходящий
+вариант для своего будущего.
 </p>
 
-<div class="hero-actions">
+<div class="buttons">
 
 <a class="btn btn-red" href="#universities">
 Смотреть университеты ↓
 </a>
 
 <a class="btn btn-dark" href="universities.html">
-← Все города
+← Назад
 </a>
 
 </div>
 
 </div>
+
 </div>
+
 </div>
+
 </section>
 
 
 <section class="intro">
+
 <div class="container">
 
 <div class="kicker">
-ГОРОД ВОЗМОЖНОСТЕЙ
-</div>
-
-<h2>
-Учёба и жизнь в Шанхае
-</h2>
-
-<p class="description">
-Современный мегаполис, международная среда и сильные университеты.
-Здесь собраны университеты Шанхая, которые можно рассмотреть
-для поступления через ChinaWay.
-</p>
-
-<div class="city-gallery">
-
-<div class="city-photo big"></div>
-
-<div class="city-stack">
-<div class="city-photo"></div>
-<div class="city-photo"></div>
-</div>
-
-</div>
-
-</div>
-</section>
-
-
-<section class="universities" id="universities">
-<div class="container">
-
-<div class="section-head">
-
-<div class="kicker">
-CHINAWAY · КАТАЛОГ
+CHINAWAY · SHANGHAI
 </div>
 
 <h2>
@@ -538,15 +489,24 @@ CHINAWAY · КАТАЛОГ
 </h2>
 
 <p class="description">
-Выбери университет, чтобы узнать больше о программах,
-стипендиях и возможностях поступления.
+Шанхай — международный мегаполис и один из крупнейших
+образовательных центров Китая. Здесь собраны университеты,
+которые можно рассмотреть для поступления через ChinaWay.
 </p>
 
 </div>
 
+</section>
+
+
+<section class="universities" id="universities">
+
+<div class="container">
 
 <div class="grid">
 
+
+<!-- FUDAN -->
 
 <article class="card">
 
@@ -574,12 +534,16 @@ Fudan University
 </a>
 
 </div>
+
 </article>
 
 
+<!-- SHANGHAI JIAO TONG -->
+
 <article class="card">
 
-<div class="photo sjtu">
+<div class="photo placeholder">
+Фото добавим следующим
 <div class="number">02</div>
 </div>
 
@@ -603,12 +567,16 @@ Shanghai Jiao Tong University
 </a>
 
 </div>
+
 </article>
 
 
+<!-- TONGJI -->
+
 <article class="card">
 
-<div class="photo tongji">
+<div class="photo placeholder">
+Фото добавим следующим
 <div class="number">03</div>
 </div>
 
@@ -632,12 +600,16 @@ Tongji University
 </a>
 
 </div>
+
 </article>
 
 
+<!-- SHANGHAI UNIVERSITY -->
+
 <article class="card">
 
-<div class="photo shu">
+<div class="photo placeholder">
+Фото добавим следующим
 <div class="number">04</div>
 </div>
 
@@ -661,12 +633,16 @@ Shanghai University
 </a>
 
 </div>
+
 </article>
 
 
+<!-- ECNU -->
+
 <article class="card">
 
-<div class="photo ecnu">
+<div class="photo placeholder">
+Фото добавим следующим
 <div class="number">05</div>
 </div>
 
@@ -690,12 +666,16 @@ East China Normal University
 </a>
 
 </div>
+
 </article>
 
 
+<!-- DONGHUA -->
+
 <article class="card">
 
-<div class="photo donghua">
+<div class="photo placeholder">
+Фото добавим следующим
 <div class="number">06</div>
 </div>
 
@@ -719,21 +699,25 @@ Donghua University
 </a>
 
 </div>
+
 </article>
 
 
 </div>
+
 </div>
+
 </section>
 
 
 <section>
+
 <div class="container">
 
 <div class="cta">
 
 <div class="kicker">
-НУЖНА ПОМОЩЬ?
+CHINAWAY
 </div>
 
 <h2>
@@ -741,11 +725,9 @@ Donghua University
 </h2>
 
 <p>
-Оставь заявку в ChinaWay. Мы поможем подобрать университет
-и программу под твои цели.
+Оставь заявку. ChinaWay поможет подобрать университет,
+программу обучения и подходящий вариант поступления.
 </p>
-
-<br>
 
 <a class="btn btn-red" href="index.html#application">
 Подать заявку →
@@ -754,16 +736,18 @@ Donghua University
 </div>
 
 </div>
+
 </section>
+
 
 </main>
 
 
 <footer>
 
-<div class="container footer-row">
+<div class="container footer">
 
-<div class="footer-logo">
+<div class="footer-name">
 ChinaWay<span>.</span>
 </div>
 
@@ -778,6 +762,7 @@ ChinaWay<span>.</span>
 </div>
 
 </footer>
+
 
 </body>
 </html>
