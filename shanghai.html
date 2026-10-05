@@ -1,768 +1,333 @@
 <!doctype html>
 <html lang="ru">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#080a0f">
-
-<title>Университеты Шанхая | ChinaWay</title>
-
-<style>
-
-:root{
-  --bg:#080a0f;
-  --panel:#151821;
-  --text:#f5f6f8;
-  --muted:#9da3af;
-  --red:#ef3434;
-  --line:rgba(255,255,255,.09);
-}
-
-*{
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  margin:0;
-  background:var(--bg);
-  color:var(--text);
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-}
-
-a{
-  color:inherit;
-  text-decoration:none;
-}
-
-.container{
-  width:min(1180px,calc(100% - 28px));
-  margin:auto;
-}
-
-
-/* HEADER */
-
-header{
-  position:sticky;
-  top:0;
-  z-index:50;
-  background:rgba(8,10,15,.94);
-  backdrop-filter:blur(18px);
-  border-bottom:1px solid var(--line);
-}
-
-.nav{
-  height:74px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:15px;
-}
-
-.logo img{
-  height:44px;
-  width:auto;
-  display:block;
-}
-
-.nav-links{
-  display:flex;
-  gap:25px;
-  color:#d8dbe2;
-  font-size:14px;
-}
-
-.apply{
-  background:var(--red);
-  padding:12px 17px;
-  border-radius:13px;
-  font-weight:800;
-}
-
-
-/* HERO */
-
-.hero{
-  padding:25px 0 45px;
-}
-
-.hero-box{
-  min-height:460px;
-  border-radius:30px;
-  padding:42px;
-  display:flex;
-  align-items:flex-end;
-  position:relative;
-  overflow:hidden;
-  border:1px solid var(--line);
-
-  background:
-    radial-gradient(circle at 80% 20%,rgba(239,52,52,.35),transparent 35%),
-    linear-gradient(135deg,#181c27,#090b11 65%);
-}
-
-.hero-box:after{
-  content:"上海";
-  position:absolute;
-  right:-20px;
-  top:20px;
-  font-size:190px;
-  font-weight:900;
-  color:rgba(255,255,255,.035);
-}
-
-.hero-content{
-  position:relative;
-  z-index:2;
-  max-width:720px;
-}
-
-.badge{
-  display:inline-block;
-  color:#fff;
-  border:1px solid rgba(239,52,52,.45);
-  background:rgba(239,52,52,.12);
-  padding:8px 13px;
-  border-radius:100px;
-  font-size:12px;
-  font-weight:800;
-  letter-spacing:.08em;
-}
-
-h1{
-  font-size:clamp(52px,9vw,92px);
-  line-height:.95;
-  margin:20px 0;
-  letter-spacing:-.05em;
-}
-
-h1 span{
-  color:var(--red);
-}
-
-.hero p{
-  color:#c9cdd6;
-  font-size:18px;
-  line-height:1.6;
-  max-width:620px;
-}
-
-.buttons{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-top:24px;
-}
-
-.btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:14px 18px;
-  border-radius:14px;
-  font-weight:800;
-}
-
-.btn-red{
-  background:var(--red);
-}
-
-.btn-dark{
-  background:#151821;
-  border:1px solid var(--line);
-}
-
-
-/* INTRO */
-
-.intro{
-  padding:25px 0 45px;
-}
-
-.kicker{
-  color:var(--red);
-  font-size:12px;
-  font-weight:900;
-  letter-spacing:.15em;
-}
-
-h2{
-  font-size:clamp(34px,6vw,54px);
-  margin:10px 0 14px;
-  letter-spacing:-.04em;
-}
-
-.description{
-  color:var(--muted);
-  line-height:1.7;
-  max-width:720px;
-}
-
-
-/* UNIVERSITY GRID */
-
-.universities{
-  padding:20px 0 80px;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
-  margin-top:30px;
-}
-
-.card{
-  background:linear-gradient(180deg,#171b24,#11141b);
-  border:1px solid var(--line);
-  border-radius:24px;
-  overflow:hidden;
-}
-
-.photo{
-  height:235px;
-  position:relative;
-  background-size:cover;
-  background-position:center;
-}
-
-
-/* FUDAN — ПРАВИЛЬНАЯ ФОТОГРАФИЯ */
-
-.fudan{
-  background-image:url('IMG_4341.jpeg');
-}
-
-
-/* ФОТОГРАФИИ ОСТАЛЬНЫХ ДОБАВИМ ПОТОМ */
-
-.placeholder{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:
-    radial-gradient(circle at 70% 20%,rgba(239,52,52,.25),transparent 35%),
-    #171a22;
-  color:#777d89;
-  font-size:13px;
-  font-weight:700;
-}
-
-.number{
-  position:absolute;
-  top:15px;
-  left:15px;
-  background:rgba(5,6,10,.8);
-  backdrop-filter:blur(10px);
-  padding:7px 10px;
-  border-radius:10px;
-  font-size:12px;
-  font-weight:900;
-}
-
-.content{
-  padding:21px;
-}
-
-.location{
-  color:var(--red);
-  font-size:11px;
-  font-weight:900;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-}
-
-h3{
-  margin:10px 0 5px;
-  font-size:22px;
-  line-height:1.25;
-}
-
-.cn{
-  color:var(--muted);
-  margin-bottom:18px;
-}
-
-.more{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding-top:16px;
-  border-top:1px solid var(--line);
-  font-weight:800;
-}
-
-.more span{
-  color:var(--red);
-  font-size:22px;
-}
-
-
-/* CTA */
-
-.cta{
-  margin-bottom:70px;
-  padding:35px;
-  border-radius:27px;
-  border:1px solid var(--line);
-  background:
-    radial-gradient(circle at 90% 10%,rgba(239,52,52,.18),transparent 35%),
-    #151821;
-}
-
-.cta p{
-  color:var(--muted);
-  line-height:1.7;
-}
-
-
-/* FOOTER */
-
-footer{
-  border-top:1px solid var(--line);
-  padding:30px 0;
-  color:var(--muted);
-}
-
-.footer{
-  display:flex;
-  justify-content:space-between;
-  gap:20px;
-}
-
-.footer-name{
-  color:#fff;
-  font-weight:900;
-}
-
-.footer-name span{
-  color:var(--red);
-}
-
-
-/* MOBILE */
-
-@media(max-width:850px){
-
-  .nav-links{
-    display:none;
-  }
-
-  .grid{
-    grid-template-columns:1fr 1fr;
-  }
-
-}
-
-@media(max-width:600px){
-
-  .container{
-    width:calc(100% - 22px);
-  }
-
-  .logo img{
-    height:38px;
-  }
-
-  .hero-box{
-    min-height:430px;
-    padding:24px;
-    border-radius:23px;
-  }
-
-  .hero-box:after{
-    font-size:120px;
-  }
-
-  h1{
-    font-size:54px;
-  }
-
-  .hero p{
-    font-size:16px;
-  }
-
-  .grid{
-    grid-template-columns:1fr;
-  }
-
-  .photo{
-    height:240px;
-  }
-
-  .footer{
-    flex-direction:column;
-  }
-
-}
-
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#080a0f">
+  <meta name="description" content="Университеты Шанхая — Fudan University, Shanghai Jiao Tong University, Tongji University и другие. ChinaWay помогает с поступлением в университеты Китая.">
+  <title>Университеты Шанхая | ChinaWay</title>
+
+  <style>
+    :root{
+      --bg:#080a0f;
+      --panel:#11151d;
+      --panel2:#171c26;
+      --text:#f5f6f8;
+      --muted:#9da3af;
+      --red:#ef3434;
+      --red2:#ff4a4a;
+      --line:rgba(255,255,255,.09);
+      --shadow:0 24px 70px rgba(0,0,0,.42);
+      --radius:28px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 82% 8%,rgba(239,52,52,.10),transparent 28%),
+        var(--bg);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+      line-height:1.5;
+    }
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%}
+    .container{width:min(1180px,calc(100% - 36px));margin:0 auto}
+
+    /* HEADER */
+    header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:rgba(8,10,15,.86);
+      border-bottom:1px solid var(--line);
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
+    }
+    .nav{
+      min-height:76px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+    }
+    .logo img{height:48px;width:auto}
+    .navlinks{display:flex;align-items:center;gap:26px;color:#c8ced8;font-size:14px}
+    .navlinks a:hover{color:#fff}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:48px;
+      padding:0 20px;
+      border-radius:14px;
+      font-size:14px;
+      font-weight:800;
+      border:1px solid transparent;
+      transition:.2s ease;
+    }
+    .btn-red{
+      background:linear-gradient(135deg,var(--red),#c91f2b);
+      box-shadow:0 10px 30px rgba(239,52,52,.22);
+    }
+    .btn-red:hover{transform:translateY(-2px)}
+    .btn-dark{background:rgba(255,255,255,.06);border-color:var(--line)}
+
+    /* HERO */
+    .hero{
+      min-height:600px;
+      display:flex;
+      align-items:flex-end;
+      position:relative;
+      overflow:hidden;
+      border-bottom:1px solid var(--line);
+      background:
+        linear-gradient(90deg,rgba(8,10,15,.97) 0%,rgba(8,10,15,.76) 48%,rgba(8,10,15,.34) 100%),
+        linear-gradient(0deg,var(--bg) 0%,transparent 45%),
+        url("IMG_4341.jpeg") center/cover no-repeat;
+    }
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg,transparent 58%,var(--bg) 100%);
+      pointer-events:none;
+    }
+    .hero-content{position:relative;z-index:2;max-width:790px;padding:110px 0 82px}
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      margin-bottom:18px;
+      color:#ff6a6a;
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+    }
+    .eyebrow::before{content:"";width:34px;height:2px;background:var(--red);border-radius:99px}
+    h1{margin:0;font-size:clamp(56px,8vw,104px);line-height:.94;letter-spacing:-.055em}
+    .hero p{max-width:670px;margin:24px 0 0;color:#c1c7d2;font-size:clamp(17px,2vw,21px)}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+
+    /* UNIVERSITIES */
+    section{padding:88px 0}
+    .section-head{
+      display:grid;
+      grid-template-columns:1fr auto;
+      align-items:end;
+      gap:28px;
+      margin-bottom:34px;
+    }
+    .kicker{margin-bottom:11px;color:#ff6767;font-size:12px;font-weight:900;letter-spacing:.17em;text-transform:uppercase}
+    h2{margin:0;font-size:clamp(36px,5vw,62px);line-height:1;letter-spacing:-.045em}
+    .section-note{max-width:430px;color:var(--muted);font-size:15px;text-align:right}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+
+    .card{
+      overflow:hidden;
+      min-width:0;
+      background:linear-gradient(180deg,var(--panel2),var(--panel));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      transition:transform .25s ease,border-color .25s ease;
+    }
+    .card:hover{transform:translateY(-5px);border-color:rgba(239,52,52,.35)}
+    .photo{position:relative;height:260px;overflow:hidden;background:#0e1117}
+    .photo img{width:100%;height:100%;object-fit:cover;transition:transform .45s ease}
+    .card:hover .photo img{transform:scale(1.035)}
+    .photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 48%,rgba(8,10,15,.70) 100%);pointer-events:none}
+    .number{
+      position:absolute;
+      z-index:2;
+      top:16px;
+      left:16px;
+      display:grid;
+      place-items:center;
+      width:44px;
+      height:44px;
+      border-radius:14px;
+      background:rgba(8,10,15,.80);
+      border:1px solid rgba(255,255,255,.14);
+      backdrop-filter:blur(12px);
+      font-size:13px;
+      font-weight:900;
+    }
+    .content{padding:24px}
+    .location{margin-bottom:11px;color:#ff6868;font-size:11px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
+    .card h3{margin:0;font-size:24px;line-height:1.12;letter-spacing:-.025em}
+    .cn{margin-top:7px;color:#c9cfda;font-size:16px}
+    .more{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-top:24px;
+      padding-top:18px;
+      border-top:1px solid var(--line);
+      font-size:14px;
+      font-weight:850;
+    }
+    .more span{color:var(--red2);font-size:22px;transition:transform .2s ease}
+    .more:hover span{transform:translateX(4px)}
+
+    /* CTA */
+    .cta{padding-top:18px}
+    .cta-box{
+      position:relative;
+      overflow:hidden;
+      padding:52px;
+      border-radius:32px;
+      border:1px solid rgba(239,52,52,.24);
+      background:
+        radial-gradient(circle at 90% 20%,rgba(239,52,52,.22),transparent 30%),
+        linear-gradient(135deg,#171b24,#0d1016);
+      box-shadow:var(--shadow);
+    }
+    .cta-box h2{max-width:760px;font-size:clamp(34px,5vw,58px)}
+    .cta-box p{max-width:670px;margin:18px 0 28px;color:#b5bdca}
+
+    footer{margin-top:88px;padding:34px 0 42px;border-top:1px solid var(--line);color:#8e96a5}
+    .footer-row{display:flex;align-items:center;justify-content:space-between;gap:20px;font-size:13px}
+    .footer-brand{color:#fff;font-weight:900}
+
+    @media(max-width:980px){
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .section-head{grid-template-columns:1fr}
+      .section-note{text-align:left}
+    }
+
+    @media(max-width:720px){
+      .container{width:min(1180px,calc(100% - 24px))}
+      .nav{min-height:68px}
+      .logo img{height:38px}
+      .navlinks{display:none}
+      .nav .btn{min-height:42px;padding:0 14px;font-size:13px}
+      .hero{min-height:560px;background-position:54% center}
+      .hero-content{padding:96px 0 66px}
+      .hero p{font-size:16px}
+      section{padding:66px 0}
+      .grid{grid-template-columns:1fr}
+      .photo{height:245px}
+      .cta-box{padding:34px 24px}
+      .footer-row{flex-direction:column;align-items:flex-start}
+    }
+  </style>
 </head>
-
-
 <body>
 
-
 <header>
+  <div class="container nav">
+    <a class="logo" href="index.html" aria-label="ChinaWay — главная">
+      <img src="ChinaWay_logo.png" alt="ChinaWay">
+    </a>
 
-<div class="container nav">
+    <nav class="navlinks">
+      <a href="index.html">Главная</a>
+      <a href="universities.html">Города</a>
+      <a href="#universities">Шанхай</a>
+    </nav>
 
-<a class="logo" href="index.html">
-<img src="ChinaWay_logo.png" alt="ChinaWay">
-</a>
-
-<nav class="nav-links">
-<a href="index.html">Главная</a>
-<a href="universities.html">Все университеты</a>
-<a href="#universities">Шанхай</a>
-</nav>
-
-<a class="apply" href="index.html#application">
-Подать заявку
-</a>
-
-</div>
-
+    <a class="btn btn-red" href="index.html#application">Подать заявку</a>
+  </div>
 </header>
 
-
 <main>
-
-
-<section class="hero">
-
-<div class="container">
-
-<div class="hero-box">
-
-<div class="hero-content">
-
-<div class="badge">
-CHINAWAY · SHANGHAI
-</div>
-
-<h1>
-Шанхай <span>上海</span>
-</h1>
-
-<p>
-Один из главных образовательных центров Китая.
-Изучай университеты Шанхая и выбирай подходящий
-вариант для своего будущего.
-</p>
-
-<div class="buttons">
-
-<a class="btn btn-red" href="#universities">
-Смотреть университеты ↓
-</a>
-
-<a class="btn btn-dark" href="universities.html">
-← Назад
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<section class="intro">
-
-<div class="container">
-
-<div class="kicker">
-CHINAWAY · SHANGHAI
-</div>
-
-<h2>
-Университеты Шанхая
-</h2>
-
-<p class="description">
-Шанхай — международный мегаполис и один из крупнейших
-образовательных центров Китая. Здесь собраны университеты,
-которые можно рассмотреть для поступления через ChinaWay.
-</p>
-
-</div>
-
-</section>
-
-
-<section class="universities" id="universities">
-
-<div class="container">
-
-<div class="grid">
-
-
-<!-- FUDAN -->
-
-<article class="card">
-
-<div class="photo fudan">
-<div class="number">01</div>
-</div>
-
-<div class="content">
-
-<div class="location">
-Shanghai · China
-</div>
-
-<h3>
-Fudan University
-</h3>
-
-<div class="cn">
-复旦大学
-</div>
-
-<a class="more" href="#">
-Подробнее
-<span>→</span>
-</a>
-
-</div>
-
-</article>
-
-
-<!-- SHANGHAI JIAO TONG -->
-
-<article class="card">
-
-<div class="photo placeholder">
-Фото добавим следующим
-<div class="number">02</div>
-</div>
-
-<div class="content">
-
-<div class="location">
-Shanghai · China
-</div>
-
-<h3>
-Shanghai Jiao Tong University
-</h3>
-
-<div class="cn">
-上海交通大学
-</div>
-
-<a class="more" href="#">
-Подробнее
-<span>→</span>
-</a>
-
-</div>
-
-</article>
-
-
-<!-- TONGJI -->
-
-<article class="card">
-
-<div class="photo placeholder">
-Фото добавим следующим
-<div class="number">03</div>
-</div>
-
-<div class="content">
-
-<div class="location">
-Shanghai · China
-</div>
-
-<h3>
-Tongji University
-</h3>
-
-<div class="cn">
-同济大学
-</div>
-
-<a class="more" href="#">
-Подробнее
-<span>→</span>
-</a>
-
-</div>
-
-</article>
-
-
-<!-- SHANGHAI UNIVERSITY -->
-
-<article class="card">
-
-<div class="photo placeholder">
-Фото добавим следующим
-<div class="number">04</div>
-</div>
-
-<div class="content">
-
-<div class="location">
-Shanghai · China
-</div>
-
-<h3>
-Shanghai University
-</h3>
-
-<div class="cn">
-上海大学
-</div>
-
-<a class="more" href="#">
-Подробнее
-<span>→</span>
-</a>
-
-</div>
-
-</article>
-
-
-<!-- ECNU -->
-
-<article class="card">
-
-<div class="photo placeholder">
-Фото добавим следующим
-<div class="number">05</div>
-</div>
-
-<div class="content">
-
-<div class="location">
-Shanghai · China
-</div>
-
-<h3>
-East China Normal University
-</h3>
-
-<div class="cn">
-华东师范大学
-</div>
-
-<a class="more" href="#">
-Подробнее
-<span>→</span>
-</a>
-
-</div>
-
-</article>
-
-
-<!-- DONGHUA -->
-
-<article class="card">
-
-<div class="photo placeholder">
-Фото добавим следующим
-<div class="number">06</div>
-</div>
-
-<div class="content">
-
-<div class="location">
-Shanghai · China
-</div>
-
-<h3>
-Donghua University
-</h3>
-
-<div class="cn">
-东华大学
-</div>
-
-<a class="more" href="#">
-Подробнее
-<span>→</span>
-</a>
-
-</div>
-
-</article>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-<section>
-
-<div class="container">
-
-<div class="cta">
-
-<div class="kicker">
-CHINAWAY
-</div>
-
-<h2>
-Не знаешь, какой университет выбрать?
-</h2>
-
-<p>
-Оставь заявку. ChinaWay поможет подобрать университет,
-программу обучения и подходящий вариант поступления.
-</p>
-
-<a class="btn btn-red" href="index.html#application">
-Подать заявку →
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="eyebrow">ChinaWay · Shanghai</div>
+        <h1>Шанхай<br>上海</h1>
+        <p>Один из главных образовательных центров Китая. Выбери университет Шанхая, а ChinaWay поможет с программой, документами и поступлением.</p>
+        <div class="hero-actions">
+          <a class="btn btn-red" href="#universities">Смотреть университеты ↓</a>
+          <a class="btn btn-dark" href="universities.html">← Все города</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="universities">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="kicker">ChinaWay · Shanghai</div>
+          <h2>Университеты Шанхая</h2>
+        </div>
+        <div class="section-note">9 университетов Шанхая. Все фотографии подключены напрямую из файлов, которые уже лежат в репозитории ChinaWay.</div>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <div class="photo"><img src="IMG_4341.jpeg" alt="Fudan University" loading="lazy"><div class="number">01</div></div>
+          <div class="content"><div class="location">Shanghai · China</div><h3>Fudan University</h3><div class="cn">复旦大学</div><a class="more" href="#">Подробнее <span>→</span></a></div>
+        </article>
+
+        <article class="card">
+          <div class="photo"><img src="IMG_4344.jpeg" alt="Shanghai Jiao Tong University" loading="lazy"><div class="number">02</div></div>
+          <div class="content"><div class="location">Shanghai · China</div><h3>Shanghai Jiao Tong University</h3><div class="cn">上海交通大学</div><a class="more" href="#">Подробнее <span>→</span></a></div>
+        </article>
+
+        <article class="card">
+          <div class="photo"><img src="IMG_4345.jpeg" alt="Tongji University" loading="lazy"><div class="number">03</div></div>
+          <div class="content"><div class="location">Shanghai · China</div><h3>Tongji University</h3><div class="cn">同济大学</div><a class="more" href="#">Подробнее <span>→</span></a></div>
+        </article>
+
+        <article class="card">
+          <div class="photo"><img src="IMG_4346.jpeg" alt="East China Normal University" loading="lazy"><div class="number">04</div></div>
+          <div class="content"><div class="location">Shanghai · China</div><h3>East China Normal University</h3><div class="cn">华东师范大学</div><a class="more" href="#">Подробнее <span>→</span></a></div>
+        </article>
+
+        <article class="card">
+          <div class="photo"><img src="IMG_4347.jpeg" alt="Shanghai University" loading="lazy"><div class="number">05</div></div>
+          <div class="content"><div class="location">Shanghai · China</div><h3>Shanghai University</h3><div class="cn">上海大学</div><a class="more" href="#">Подробнее <span>→</span></a></div>
+        </article>
+
+        <article class="card">
+          <div class="photo"><img src="IMG_4348.jpeg" alt="East China University of Science and Technology" loading="lazy"><div class="number">06</div></div>
+          <div class="content"><div class="location">Shanghai · China</div><h3>East China University of Science and Technology</h3><div class="cn">华东理工大学</div><a class="more" href="#">Подробнее <span>→</span></a></div>
+        </article>
+
+        <article class="card">
+          <div class="photo"><img src="IMG_4349.jpeg" alt="Donghua University" loading="lazy"><div class="number">07</div></div>
+          <div class="content"><div class="location">Shanghai · China</div><h3>Donghua University</h3><div class="cn">东华大学</div><a class="more" href="#">Подробнее <span>→</span></a></div>
+        </article>
+
+        <article class="card">
+          <div class="photo"><img src="IMG_4350.jpeg" alt="Shanghai University of Finance and Economics" loading="lazy"><div class="number">08</div></div>
+          <div class="content"><div class="location">Shanghai · China</div><h3>Shanghai University of Finance and Economics</h3><div class="cn">上海财经大学</div><a class="more" href="#">Подробнее <span>→</span></a></div>
+        </article>
+
+        <article class="card">
+          <div class="photo"><img src="IMG_4351.jpeg" alt="Shanghai International Studies University" loading="lazy"><div class="number">09</div></div>
+          <div class="content"><div class="location">Shanghai · China</div><h3>Shanghai International Studies University</h3><div class="cn">上海外国语大学</div><a class="more" href="#">Подробнее <span>→</span></a></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <div class="cta-box">
+        <div class="kicker">ChinaWay · Application</div>
+        <h2>Не знаешь, какой университет выбрать?</h2>
+        <p>Оставь заявку. ChinaWay поможет подобрать университет и программу под твои цели, уровень языка и бюджет.</p>
+        <a class="btn btn-red" href="index.html#application">Подать заявку →</a>
+      </div>
+    </div>
+  </section>
 </main>
 
-
 <footer>
-
-<div class="container footer">
-
-<div class="footer-name">
-ChinaWay<span>.</span>
-</div>
-
-<div>
-Шанхай · Китай · 上海
-</div>
-
-<div>
-© 2026 ChinaWay
-</div>
-
-</div>
-
+  <div class="container footer-row">
+    <div class="footer-brand">ChinaWay.</div>
+    <div>Шанхай · Китай · 上海</div>
+    <div>© 2026 ChinaWay</div>
+  </div>
 </footer>
-
 
 </body>
 </html>
